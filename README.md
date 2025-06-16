@@ -4,7 +4,7 @@ Este repositório documenta o laboratório "Automatizando o Fim das Instâncias 
 
 O objetivo é otimizar custos e automatizar a limpeza de ambientes na nuvem, utilizando serviços gerenciados da AWS.
 
-**Instrutor:** Tomas Alric
+**Instrutor:** Tomas Alric ([@TomasAlric](https://github.com/TomasAlric/TomasAlric))
 **Aluno:** Artur Costa ([@arturcosta86](https://github.com/arturcosta86))
 
 ---
@@ -56,25 +56,56 @@ def lambda_handler(event, context):
 
 ## ✅ Evidências de Execução do Laboratório
 
-A seguir estão as capturas de tela que comprovam a configuração e o funcionamento da automação.
+A seguir estão as 7 capturas de tela que comprovam a criação, configuração e o funcionamento de todos os recursos da automação na AWS.
 
-**1. Política IAM Criada (`PoliticaTerminarEC2-ArturCosta`)**
-![Evidência Política IAM](Print%20-%20Evidência%20Política%20IAM%20(1).jpg)
+### 1. Política IAM Criada
+**Arquivo:** `Print - Evidência Política IAM.jpg`
 
-**2. Role IAM Criada (`RoleTerminarEC2-ArturCosta`)**
-![Evidência Role IAM](Print%20-%20Evidência%20Função%20IAM%20(1).jpeg)
+[cite_start]Esta política (`PoliticaTerminarEC2-ArturCosta`) foi criada para conceder as permissões necessárias para a função Lambda gerenciar instâncias EC2 e escrever logs no CloudWatch.
 
-**3. Código da Função Lambda**
-![Evidência Código Lambda](Print%20-%20Evidência%20Função%20Lambda%2001%20(1).jpeg)
+![Evidência Política IAM](https://github.com/arturcosta86/aws-lambda-ec2-terminator/blob/main/Print%20-%20Evid%C3%AAncia%20Pol%C3%ADtica%20IAM.jpeg)
 
-**4. Configuração do Handler e Timeout**
-![Evidência Configuração do Handler](Print%20-%20Evidência%20Função%20Lambda%2003%20(1).jpeg)
+### 2. Role IAM Criada
+**Arquivo:** `Print - Evidência Função IAM.jpeg`
 
-**5. Gatilho do EventBridge Configurado**
-![Evidência Gatilho EventBridge](Print%20-%20Evidência%20GatilhoTerminarEC2-ArturCosta%20(1).jpeg)
+[cite_start]A Role (`RoleTerminarEC2-ArturCosta`) foi criada para o tipo de entidade confiável "Serviço da AWS", permitindo que o serviço Lambda a utilize para executar as ações definidas na política.
 
-**6. Resultado: Instância Encerrada pela Automação**
-![Evidência Instância Encerrada](print%20-%20Evidência%20Instância%20Encerrada%20com%20o%20Gatilho%20(1).jpeg)
+![Evidência Role IAM](https://github.com/arturcosta86/aws-lambda-ec2-terminator/blob/main/Print%20-%20Evid%C3%AAncia%20Fun%C3%A7%C3%A3o%20IAM.jpeg)
+
+### 3. Criação da Função Lambda
+**Arquivo:** `Print - Evidência Função Lambda 02.jpeg`
+
+[cite_start]Tela inicial da criação da função `LambdaTerminarEC2-ArturCosta`, mostrando que ela foi criada com sucesso, ainda com o código padrão.
+
+![Criação da Função Lambda](https://github.com/arturcosta86/aws-lambda-ec2-terminator/blob/main/Print%20-%20Evid%C3%AAncia%20Fun%C3%A7%C3%A3o%20Lambda%2002.jpeg)
+
+### 4. Código da Função Lambda Implantado
+**Arquivo:** `Print - Evidência Função Lambda 01.jpeg`
+
+[cite_start]O script `Terminator.py` após o upload e deploy na função Lambda, contendo a lógica para encerrar as instâncias.
+
+![Código da Função Lambda](https://github.com/arturcosta86/aws-lambda-ec2-terminator/blob/main/Print%20-%20Evid%C3%AAncia%20Fun%C3%A7%C3%A3o%20Lambda%2001.jpeg)
+
+### 5. Configuração do Handler e Timeout
+**Arquivo:** `Print - Evidência Função Lambda 03.jpeg`
+
+[cite_start]Ajuste das configurações de tempo de execução: o "Tempo limite" foi alterado para 10 segundos  [cite_start]e o "Manipulador" (Handler) foi modificado para `Terminator.lambda_handler`, garantindo que o Lambda chame a função correta e tenha tempo suficiente para executar.
+
+![Configuração do Handler](https://github.com/arturcosta86/aws-lambda-ec2-terminator/blob/main/Print%20-%20Evid%C3%AAncia%20Fun%C3%A7%C3%A3o%20Lambda%2003.jpeg)
+
+### 6. Gatilho do EventBridge Configurado
+**Arquivo:** `Print - Evidência GatilhoTerminarEC2-ArturCosta.jpeg`
+
+[cite_start]Evidência da criação do gatilho do Amazon EventBridge (`GatilhoTerminarEC2-ArturCosta`) [cite: 75][cite_start], que foi adicionado à função Lambda para acioná-la automaticamente em um agendamento definido.
+
+![Evidência Gatilho EventBridge](https://github.com/arturcosta86/aws-lambda-ec2-terminator/blob/main/Print%20-%20Evid%C3%AAncia%20GatilhoTerminarEC2.jpeg)
+
+### 7. Resultado: Instância Encerrada pela Automação
+**Arquivo:** `print - Evidência Instância Encerrada com o Gatilho (1).jpeg`
+
+Prova final do funcionamento da solução. [cite_start]Uma instância EC2 de teste (`ec2-teste-gatilhoterminarinstancia-arturcosta`) foi automaticamente movida para o estado "Encerrado" após a execução agendada da função Lambda.
+
+![Evidência Instância Encerrada](https://github.com/arturcosta86/aws-lambda-ec2-terminator/blob/main/Print%20-%20Evid%C3%AAncia%20Inst%C3%A2ncia%20Encerrada%20com%20o%20Gatilho.jpeg)
 
 ---
 
