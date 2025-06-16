@@ -61,42 +61,42 @@ A seguir estão as 7 capturas de tela que comprovam a criação, configuração 
 ### 1. Política IAM Criada
 **Arquivo:** `Print - Evidência Política IAM.jpg`
 
-[cite_start] Esta política (`PoliticaTerminarEC2-ArturCosta`) foi criada para conceder as permissões necessárias para a função Lambda gerenciar instâncias EC2 e escrever logs no CloudWatch.
+Esta política (`PoliticaTerminarEC2-ArturCosta`) foi criada para conceder as permissões necessárias para a função Lambda gerenciar instâncias EC2 e escrever logs no CloudWatch.
 
 ![Evidência Política IAM](https://github.com/arturcosta86/aws-lambda-ec2-terminator/blob/main/Print%20-%20Evid%C3%AAncia%20Pol%C3%ADtica%20IAM.jpeg)
 
 ### 2. Role IAM Criada
 **Arquivo:** `Print - Evidência Função IAM.jpeg`
 
-[cite_start] A Role (`RoleTerminarEC2-ArturCosta`) foi criada para o tipo de entidade confiável "Serviço da AWS", permitindo que o serviço Lambda a utilize para executar as ações definidas na política.
+A Role (`RoleTerminarEC2-ArturCosta`) foi criada para o tipo de entidade confiável "Serviço da AWS", permitindo que o serviço Lambda a utilize para executar as ações definidas na política.
 
 ![Evidência Role IAM](https://github.com/arturcosta86/aws-lambda-ec2-terminator/blob/main/Print%20-%20Evid%C3%AAncia%20Fun%C3%A7%C3%A3o%20IAM.jpeg)
 
 ### 3. Criação da Função Lambda
 **Arquivo:** `Print - Evidência Função Lambda 02.jpeg`
 
-[cite_start] Tela inicial da criação da função `LambdaTerminarEC2-ArturCosta`, mostrando que ela foi criada com sucesso, ainda com o código padrão.
+Tela inicial da criação da função `LambdaTerminarEC2-ArturCosta`, mostrando que ela foi criada com sucesso, ainda com o código padrão.
 
 ![Criação da Função Lambda](https://github.com/arturcosta86/aws-lambda-ec2-terminator/blob/main/Print%20-%20Evid%C3%AAncia%20Fun%C3%A7%C3%A3o%20Lambda%2002.jpeg)
 
 ### 4. Código da Função Lambda Implantado
 **Arquivo:** `Print - Evidência Função Lambda 01.jpeg`
 
-[cite_start] O script `Terminator.py` após o upload e deploy na função Lambda, contendo a lógica para encerrar as instâncias.
+O script `Terminator.py` após o upload e deploy na função Lambda, contendo a lógica para encerrar as instâncias.
 
 ![Código da Função Lambda](https://github.com/arturcosta86/aws-lambda-ec2-terminator/blob/main/Print%20-%20Evid%C3%AAncia%20Fun%C3%A7%C3%A3o%20Lambda%2001.jpeg)
 
 ### 5. Configuração do Handler e Timeout
 **Arquivo:** `Print - Evidência Função Lambda 03.jpeg`
 
-[cite_start]Ajuste das configurações de tempo de execução: o "Tempo limite" foi alterado para 10 segundos  [cite_start]e o "Manipulador" (Handler) foi modificado para `Terminator.lambda_handler`, garantindo que o Lambda chame a função correta e tenha tempo suficiente para executar.
+Ajuste das configurações de tempo de execução: o "Tempo limite" foi alterado para 10 segundos  [cite_start]e o "Manipulador" (Handler) foi modificado para `Terminator.lambda_handler`, garantindo que o Lambda chame a função correta e tenha tempo suficiente para executar.
 
 ![Configuração do Handler](https://github.com/arturcosta86/aws-lambda-ec2-terminator/blob/main/Print%20-%20Evid%C3%AAncia%20Fun%C3%A7%C3%A3o%20Lambda%2003.jpeg)
 
 ### 6. Gatilho do EventBridge Configurado
 **Arquivo:** `Print - Evidência GatilhoTerminarEC2-ArturCosta.jpeg`
 
-[cite_start]Evidência da criação do gatilho do Amazon EventBridge (`GatilhoTerminarEC2-ArturCosta`) [cite: 75][cite_start], que foi adicionado à função Lambda para acioná-la automaticamente em um agendamento definido.
+Evidência da criação do gatilho do Amazon EventBridge (`GatilhoTerminarEC2-ArturCosta`) [cite: 75][cite_start], que foi adicionado à função Lambda para acioná-la automaticamente em um agendamento definido.
 
 ![Evidência Gatilho EventBridge](https://github.com/arturcosta86/aws-lambda-ec2-terminator/blob/main/Print%20-%20Evid%C3%AAncia%20GatilhoTerminarEC2.jpeg)
 
